@@ -1,0 +1,47 @@
+---
+title: "FoodChoice_vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{FoodChoice_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+This package contains three useful functions for analyzing induced food choice experiment data from caterpillar food choice tests. Data from food choice experiments frequently performed on caterpillars to gauge preferences is used as the input for the functions in this package. In the end, this package will assist the user in getting started with food choice data analyses. 
+
+
+**Sample data fro this package might look something like this:**
+```{r echo=FALSE}
+library(FoodChoice)
+return(sampledata)
+```
+
+The first function, "timeconv", converts time data from hh:mm format to numeric decimal hours format for quantitative analyses:
+
+```{r setup}
+library(FoodChoice)
+timeconv(sampledata$Time)
+```
+The second, "movementstats", informs the user of the percentages of trials in which the caterpillars did not move from initial placement to check 1, check 2, check 3, check 4, and the final location. These statistics are extremely useful in gauging the mobility level of the particular speceis of caterpillar being tested.
+
+```{r}
+library(FoodChoice)
+movementstats(sampledata$Placement, sampledata$Check.1, 
+              sampledata$Check.2, sampledata$Check.3, 
+              sampledata$Check.4, sampledata$Final.Location)
+```
+The third function, "finalplots", displays percentages of caterpillars ending up on each of the host plants, and subsequently uses ggplot2 to plot final locations. Please remember to include quotes around host plant denotations.
+
+```{r}
+library(FoodChoice)
+finalplots(sampledata, sampledata$Final.Location, "A", "P", "V")
+```
+
+After running the functions in this package, the user will hopefully have a better idea of the bigger picture of the pre-performed food choice experiments. Since these data sets involve an abundance of columns and species denotations, it can be an overwhelming process to make sense of the data at first. Hopefully the user will find this useful for obtaining a clearer picture of the results.
+

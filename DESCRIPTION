@@ -1,0 +1,19 @@
+Package: FoodChoice
+Title: Food Choice Experiment Analysis
+Version: 0.0.0.9000
+Authors@R: 
+    person("Brian", "Schlitt", , "bms148@georgetown.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This package contains three useful functions for analyzing induced food choice experiment data from caterpillar food choice tests. The first, "timeconv", converts time data from hh:mm format to numeric decimal hours format for quantitative analyses. The second, "movementstats", informs the user of the percentages of trials in which the caterpillars did not move from initial placement to check 1, check 2, check 3, check 4, and the final location. The third function, "finalplots", displays percentages of caterpillars ending up on each of the host plants, and subsequently uses ggplot2 to plot final locations.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
